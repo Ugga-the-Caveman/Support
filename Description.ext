@@ -1,0 +1,33 @@
+onLoadIntroTime = 0;
+onLoadMissionTime = 0;
+Respawn = 3;
+respawnDelay = 1;
+respawnTemplates[] = {"ace_spectator","Counter"};
+debriefing = 1;
+disabledAI = 1;
+enableDebugConsole = 1;
+author = 14.JgKp S3-A;
+onLoadName =;
+onLoadMission =;
+showGPS=1;
+
+class Header
+{
+	gameType=COOP;
+	minPlayers=1;
+	maxPlayers=34;
+};
+
+// Hier wird die class für das Menü erstellt 
+class CfgCommunicationMenu
+{
+  class test
+      {
+          text = "Nachschub Optionen";
+					submenu = "#USER:BL_menu_Support";
+          expression = "";
+          icon = "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa";
+          removeAfterExpressionCall = 0;
+
+      };
+};
