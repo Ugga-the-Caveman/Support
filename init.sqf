@@ -1,3 +1,4 @@
+//support initialisieren
 call compile preprocessFile "support\paradrop.sqf";
 
 //Unterstützungsmenu an Player anfügen
