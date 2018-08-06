@@ -135,8 +135,6 @@ MENU_COMMS_2 =
 ];
 
 
-showCommandingMenu '#USER:BL_menu_Support';
-
 
 //warte bis die Spielereinheit richtig initialisiert ist
 0 spawn
