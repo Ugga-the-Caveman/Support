@@ -3,10 +3,7 @@ Diese Scripts erstellt ein CommMenu, über das man Nachschub anfordern kann. Der
 
 callSupport.sqf lässt den Spieler die _dropPos über die Karte wählen. Der Support-Typ wird als parameter übergeben.
 
-Die spawnPosition kann man irgendwie festlegen.
-Wenn man die _spawnPos nicht definiert, erscheint der Hubschrauber zufällig um den _caller herum.
-
-Dann wird createHeli.sqf auf dem Server gestartet, was dann den Hubschrauber erstellt und den Support abwerfen lässt.
+Hubschraubertyp und SpawnPosition werden in createHeli.sqf festgelegt.
 
 Der Nachschub wird gewöhnlich in FleckTarn geliefert. Wenn aber die Weste des Nachschub-Anforderers in "BL_Westen" eingetragen ist, wird der Nachschub in Tropentarn geliefert.
 
