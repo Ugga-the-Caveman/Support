@@ -93,31 +93,23 @@ BL_fnc_paraDrop = {
 
 //Die Westen auswahl
 BL_Westen = [
-      	"BWA3_Vest_Tropen",
-      	"BWA3_Vest_Rifleman1_Tropen",
-      	"BWA3_Vest_Autorifleman_Tropen",
-      	"BWA3_Vest_Grenadier_Tropen",
-      	"BWA3_Vest_Medic_Tropen",
-      	"BWA3_Vest_Marksman_Tropen",
-      	"BWA3_Vest_Leader_Tropen",
-      	"BWA3_Item_Vest_JPC_Rifleman_Tropen",
-      	"BWA3_Item_Vest_JPC_Leader_Tropen",
-      	"BWA3_Item_Vest_JPC_Radioman_Tropen"
+  "BWA3_Vest_Tropen",
+  "BWA3_Vest_Rifleman1_Tropen",
+  "BWA3_Vest_Autorifleman_Tropen",
+  "BWA3_Vest_Grenadier_Tropen",
+  "BWA3_Vest_Medic_Tropen",
+  "BWA3_Vest_Marksman_Tropen",
+  "BWA3_Vest_Leader_Tropen",
+  "BWA3_Item_Vest_JPC_Rifleman_Tropen",
+  "BWA3_Item_Vest_JPC_Leader_Tropen",
+  "BWA3_Item_Vest_JPC_Radioman_Tropen"
 ];
 
 
 
 
 //ab jetzt kommen nur noch Sachen die auf Spieler Pc´s ausgeführt werden sollen. Dedicated und HeadlessClients brechen hier ab
-if (hasinterface) exitwith {};
-
-//Unterstützungsmenu an Player anfügen
-[player,"Menu"] call BIS_fnc_addCommMenuItem;
-
-
-// menü definieren
-submenu = "#USER:BL_menu_Support";
-showCommandingMenu '#USER:BL_menu_Support';
+if (!hasinterface) exitwith {};
 
 
 BL_menu_Support =
@@ -141,3 +133,17 @@ MENU_COMMS_2 =
 	["Abholung", [2], "", -5, [["expression", "Hint 'Möp';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
 	["Option 2", [3], "", -5, [["expression", "Hint 'ätsch';"]], "1", "1"]
 ];
+
+
+showCommandingMenu '#USER:BL_menu_Support';
+
+
+//warte bis die Spielereinheit richtig initialisiert ist
+0 spawn
+{
+  waitUntil {player == player};
+  
+  //Unterstützungsmenu an Player anfügen
+  [player,"Menu"] call BIS_fnc_addCommMenuItem;
+  
+};//--
