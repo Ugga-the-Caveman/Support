@@ -1,11 +1,8 @@
-﻿/*
-  erstellt Helicopter der den Support abwerfen soll.
-  muss auf dem server gecalled werden.
-  
+/*
   1.Parameter: Support index
   2.Parameter: SpielerEinheit die den Support gerufen hat
   3.Parameter: (optional) Position wo der Support abgeworfen wird. Wenn undefiniert Spieler Position
-
+  4.Parameter: (optional) Position wo der Hubschrauber gespawnt werden soll
 */
 
 if (!isServer) exitwith {};
@@ -18,9 +15,7 @@ params [["_index",1,["SCALAR"]], ["_index",_caller,["OBJECT"]]];
 
 if(isNull _caller) exitwith {};
 
-//variablen in diesem scope definieren
 private ["_dropPos","_spawnPos"];
-
 
 if (count _this > 2) then
 {
@@ -31,9 +26,10 @@ else
   _dropPos = getPosatl Player;
 };
 
-if !(getmarkerPos "supportspawn" isEqualTo [0,0,0]) then
+
+if (count _this > 3) then
 {
-  _spawnPos = getmarkerPos "supportspawn";
+  _spawnPos = _this select 3;
 }
 else
 {
@@ -42,8 +38,6 @@ else
 
 _spawnPos set [2,200];
 //--
-
-
 
 
 //erstelle Helicopter und crew. crew speichern für später.
