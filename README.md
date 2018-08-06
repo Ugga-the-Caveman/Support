@@ -6,4 +6,5 @@ Wenn man die _spawnPos nicht definiert, erscheint der Hubschrauber zufällig um 
 
 Dann wird createHeli.sqf auf dem Server gestartet, was dann den Hubschrauber erstellt und den Support abwerfen lässt.
 
-Abhängig davon ob die Weste, die der _caller beim Scriptaufruf trägt, in "BL_fnc_Westen" eingetragen ist oder nicht, wird Der Nachschub in Fleck oder Tropentarn geliefert.
+Der Nachschub wird gewöhnlich in FleckTarn geliefert. Wenn aber die Weste des Nachschub-Anforderers in "BL_Westen" eingetragen ist, wird der Nachschub in Tropentarn geliefert.
+
