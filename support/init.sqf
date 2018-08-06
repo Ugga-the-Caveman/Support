@@ -112,7 +112,7 @@ BL_Westen = [
 if (hasinterface) exitwith {};
 
 //Unterstützungsmenu an Player anfügen
-[player,"test"] call BIS_fnc_addCommMenuItem;
+[player,"Menu"] call BIS_fnc_addCommMenuItem;
 
 
 // menü definieren
@@ -138,6 +138,6 @@ BL_menu_Support =
 MENU_COMMS_2 =
 [
 	["Untermenü",true],
-	["Abholung", [2], "", -5, [["expression", "Player call BL_fnc_transport_request ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
+	["Abholung", [2], "", -5, [["expression", "Hint 'Möp';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
 	["Option 2", [3], "", -5, [["expression", "Hint 'ätsch';"]], "1", "1"]
 ];
