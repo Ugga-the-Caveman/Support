@@ -1,6 +1,6 @@
 
 // Die Sound Datei
-BL_fnc_FX = {
+UGBL_fnc_FX = {
         if (!isDedicated) then {
           private "_veh";
           _veh = _this select 0;
@@ -41,12 +41,12 @@ BL_fnc_FX = {
               ];
           };
       };
-      "#FX" addPublicVariableEventHandler {_this select 1 spawn BL_fnc_FX};
+      "#FX" addPublicVariableEventHandler {_this select 1 spawn UGBL_fnc_FX};
 };
 
 
 // Der Fallschirm
-BL_fnc_paraDrop = {
+UGBL_fnc_paraDrop = {
             if (isServer) then {
               private ["_class","_para","_paras","_p","_veh","_vel","_time"];
               _class = format [
@@ -92,7 +92,7 @@ BL_fnc_paraDrop = {
 };
 
 //Die Westen auswahl
-BL_Westen = [
+UGBL_Westen = [
   "BWA3_Vest_Tropen",
   "BWA3_Vest_Rifleman1_Tropen",
   "BWA3_Vest_Autorifleman_Tropen",
@@ -112,7 +112,7 @@ BL_Westen = [
 if (!hasinterface) exitwith {};
 
 
-BL_menu_Support =
+UGBL_menu_Support =
 [
 	["Support",true],
 	["SanFuchs", [2], "", -5, [["expression", "[1] spawn compile preprocessFile 'support\callSupport.sqf';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
@@ -123,16 +123,16 @@ BL_menu_Support =
 	["Wiesel TOW", [7], "", -5, [["expression", "[6] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
 	["Eagle", [8], "", -5, [["expression", "[7] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
 	["Eagle FOW", [9], "", -5, [["expression", "[8] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Nachschub Kiste", [10], "", -5, [["expression", "[9] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Untermenü", [11], "#USER:MENU_COMMS_2", -5, [], "1", "1"]
+	["Nachschub Kiste", [10], "", -5, [["expression", "[9] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"]
+	//["Untermenü", [11], "#USER:MENU_COMMS_2", -5, [], "1", "1"]
 ];
-
+/*
 MENU_COMMS_2 =
 [
 	["Untermenü",true],
 	["Abholung", [2], "", -5, [["expression", "Hint 'Möp';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
 	["Option 2", [3], "", -5, [["expression", "Hint 'ätsch';"]], "1", "1"]
-];
+];*/
 
 
 
@@ -140,8 +140,8 @@ MENU_COMMS_2 =
 0 spawn
 {
   waitUntil {player == player};
-  
+
   //Unterstützungsmenu an Player anfügen
   [player,"Menu"] call BIS_fnc_addCommMenuItem;
-  
+
 };//--
