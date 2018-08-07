@@ -124,15 +124,8 @@ UGBL_menu_Support =
 	["Eagle", [8], "", -5, [["expression", "[7] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
 	["Eagle FOW", [9], "", -5, [["expression", "[8] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
 	["Nachschub Kiste", [10], "", -5, [["expression", "[9] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"]
-	//["Untermenü", [11], "#USER:MENU_COMMS_2", -5, [], "1", "1"]
 ];
-/*
-MENU_COMMS_2 =
-[
-	["Untermenü",true],
-	["Abholung", [2], "", -5, [["expression", "Hint 'Möp';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Option 2", [3], "", -5, [["expression", "Hint 'ätsch';"]], "1", "1"]
-];*/
+
 
 
 
