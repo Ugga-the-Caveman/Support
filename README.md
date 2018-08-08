@@ -2,12 +2,10 @@
   Call Support Menu
 </h1>
 
-<p>
-  <small>
+<p font-size="smaller">
     Tested on: Arma-3 APEX Version 1.84<br/>
     Required Mods: <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a>, <a href="http:/bwmod.de/">BW-Mod</a>, 14JgKp Mod<br/>
     Licence: none. for internal use only.<br/>
-  </small>
 </p>
 
 
