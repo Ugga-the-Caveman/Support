@@ -2,20 +2,17 @@
   1.Parameter: Support index
   2.Parameter: SpielerEinheit die den Support gerufen hat
   3.Parameter: (optional) Position wo der Support abgeworfen wird. Wenn undefiniert Spieler Position
-  4.Parameter: (optional) Position wo der Hubschrauber gespawnt werden soll
 */
 
 if (!isServer) exitwith {};
 
 
 
-
 //sammle parameter
-params [["_index",1,["SCALAR"]], ["_index",_caller,["OBJECT"]]];
+private _index = _this select 0;
+private _caller = _this select 1;
 
-if(isNull _caller) exitwith {};
-
-private ["_dropPos","_spawnPos"];
+private ["_dropPos"];
 
 if (count _this > 2) then
 {
@@ -23,19 +20,13 @@ if (count _this > 2) then
 }
 else
 {
-  _dropPos = getPosatl Player;
+  _dropPos = getPosatl _caller;
 };
+//--
 
 
-if (count _this > 3) then
-{
-  _spawnPos = _this select 3;
-}
-else
-{
-  _spawnPos = [_caller, 300, (floor (random 360))] call BIS_fnc_relPos;
-};
-
+//spawnPosition des Hubschraubers festlegen
+private _spawnPos = [_caller, 300, (floor (random 360))] call BIS_fnc_relPos;
 _spawnPos set [2,200];
 //--
 
