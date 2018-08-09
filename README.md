@@ -5,5 +5,5 @@ callSupport.sqf lässt den Spieler die _dropPos über die Karte wählen. Der Sup
 
 Hubschraubertyp und SpawnPosition werden in createHeli.sqf festgelegt.
 
-Der Nachschub wird gewöhnlich in Flecktarn geliefert. Wenn aber die Weste des Nachschub-Anforderers in "BL_Westen" eingetragen ist, wird der Nachschub in Tropentarn geliefert.
+Der Nachschub wird gewöhnlich in FleckTarn geliefert. Wenn aber die Weste des Nachschub-Anforderers in "BL_Westen" eingetragen ist, wird der Nachschub in Tropentarn geliefert.
 
