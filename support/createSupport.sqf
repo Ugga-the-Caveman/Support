@@ -25,7 +25,7 @@ private _fnc_spawnVehicle = {
 
 
 private _beladeScript = {
-  private _thisBox = _this;//parameter =)
+  private _thisBox = _this;
   
   clearWeaponCargoGlobal _thisBox;
   clearMagazineCargoGlobal _thisBox;
