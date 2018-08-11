@@ -125,16 +125,3 @@ UGBL_menu_Support =
 	["Eagle FOW", [9], "", -5, [["expression", "[8] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
 	["Nachschub Kiste", [10], "", -5, [["expression", "[9] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"]
 ];
-
-
-
-
-//warte bis die Spielereinheit richtig initialisiert ist
-0 spawn
-{
-  waitUntil {player == player};
-
-  //Unterstützungsmenu an Player anfügen
-  [player,"Menu"] call BIS_fnc_addCommMenuItem;
-
-};//--
