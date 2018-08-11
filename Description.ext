@@ -1,10 +1,10 @@
-// Hier wird die class für das Menü erstellt 
+// Hier wird die class für das Menü erstellt
 class CfgCommunicationMenu
 {
   class Menu
       {
           text = "Nachschub Optionen";
-					submenu = "#USER:BL_menu_Support";
+					submenu = "#USER:UGBL_menu_Support";
           expression = "";
           icon = "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa";
           removeAfterExpressionCall = 0;
