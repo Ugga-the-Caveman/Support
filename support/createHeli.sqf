@@ -42,7 +42,7 @@ _supportHeli flyinHeightASL [150,150,150];
 private _wp1 = _heliCrew addWaypoint [_dropPos, 0];
 _wp1 setWaypointType "MOVE";
 
-private _code = format ["[%1,vehicle leader this] call compile preprocessFile 'support\createSupport.sqf';",_index];
+private _code = format ["[%1,vehicle leader this] spawn compile preprocessFile 'support\createSupport.sqf';",_index];
 _wp1 setWaypointStatements ["true",_code];
 //--
 
