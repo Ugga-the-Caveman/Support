@@ -23,7 +23,7 @@ UGBL_mapClicked = false;
 private _handlerID = addMissionEventHandler ["MapSingleClick",{
 
   params ["_units", "_pos", "_alt", "_shift"];
-  
+
   UGBL_dropPos = _pos;
   UGBL_mapClicked = true;
 }];
@@ -53,8 +53,8 @@ UGBL_dropPos = nil;
 
 
 //abbruch, wenn dropPos immernoch leer ist
-if (count _dropPos == 0) exitwith {
-  hint "Support bestellung abgebrochen";
+if (count _dropPos isEqualTo 0) exitwith {
+  hint "Support Bestellung abgebrochen";
 };
 
 

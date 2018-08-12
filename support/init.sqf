@@ -1,5 +1,5 @@
 
-// Die Sound Datei
+// Die Sound Datei. Wird abgespielt wenn der Fallschirm abgesprengt wird
 UGBL_fnc_FX = {
         if (!isDedicated) then {
           private "_veh";
@@ -45,7 +45,7 @@ UGBL_fnc_FX = {
 };
 
 
-// Der Fallschirm
+// Der Fallschirm. Hier werden 5 Fallschirme gespawnt
 UGBL_fnc_paraDrop = {
             if (isServer) then {
               private ["_class","_para","_paras","_p","_veh","_vel","_time"];

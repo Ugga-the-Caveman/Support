@@ -19,19 +19,19 @@ _spawnPos set [2,(_spawnPos select 2) - 8];
 private _fnc_spawnVehicle = {
   private _spawnPos = _this select 0;
   private _type = if (vest player in UGBL_Westen) then {_this select 2}else{_this select 1};
-  
+
   (createVehicle [_type, _spawnPos, [], 0, "CAN_COLLIDE"])
 };
 
-
+//Das Beladungsscript für die Box
 private _beladeScript = {
   private _thisBox = _this;
-  
+
   clearWeaponCargoGlobal _thisBox;
   clearMagazineCargoGlobal _thisBox;
   clearItemCargoGlobal _thisBox;
   clearBackpackCargoGlobal _thisBox;
-  
+
   If (vest player in UGBL_Westen ) then
   {
     _thisBox addBackpackCargo ["BWA3_Kitbag_Tropen_Medic", 2];
@@ -85,11 +85,11 @@ switch (_index) do
   case 5:{_thisSupport = [_spawnPos,"Redd_Tank_Wiesel_1A4_MK20_Flecktarn","Redd_Tank_Wiesel_1A4_MK20_Tropentarn"] call _fnc_spawnVehicle;};
   case 6:{_thisSupport = [_spawnPos,"Redd_Tank_Wiesel_1A2_TOW_Flecktarn","Redd_Tank_Wiesel_1A2_TOW_Tropentarn"] call _fnc_spawnVehicle;};
   case 7:{_thisSupport = [_spawnPos,"BWA3_Eagle_Fleck","BWA3_Eagle_Tropen"] call _fnc_spawnVehicle;};
-  case 8:{_thisSupport = [_spawnPos,"BWA3_Eagle_FLW100_Fleck","BWA3_Eagle_FLW100_Tropen"] call _fnc_spawnVehicle;}; 
+  case 8:{_thisSupport = [_spawnPos,"BWA3_Eagle_FLW100_Fleck","BWA3_Eagle_FLW100_Tropen"] call _fnc_spawnVehicle;};
   case 9:{_thisSupport = [_spawnPos,"B_supplyCrate_F","B_supplyCrate_F"] call _fnc_spawnVehicle; _thisSupport call _beladeScript;};
 };
 
-
+//Drop fliegt mit angepasster Geschwindigkeit ab und bekommt Falschirm
 _thisSupport setDir (direction _thisVehicle);
 _thisSupport setVelocity (Velocity _thisVehicle);
 sleep 3;

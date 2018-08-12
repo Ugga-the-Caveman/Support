@@ -25,7 +25,7 @@ else
 //--
 
 
-//spawnPosition des Hubschraubers festlegen
+//spawnPosition des Hubschraubers festlegen. Hier noch die Entfernung anpassen
 private _spawnPos = [_caller, 300, (floor (random 360))] call BIS_fnc_relPos;
 _spawnPos set [2,200];
 //--
