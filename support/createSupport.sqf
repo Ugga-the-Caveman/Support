@@ -20,7 +20,7 @@ _spawnPos set [2,(_spawnPos select 2) - 8];
 
 private _fnc_spawnVehicle = {
   private _spawnPos = _this select 0;
-  private _type = if (vest player in UGBL_Westen) then {_this select 2}else{_this select 1};
+  private _type = if (backpack player in UGBL_RadiosTropen) then {_this select 2}else{_this select 1};
 
   (createVehicle [_type, _spawnPos, [], 0, "CAN_COLLIDE"])
 };
@@ -34,7 +34,7 @@ private _beladeScript = {
   clearItemCargoGlobal _thisBox;
   clearBackpackCargoGlobal _thisBox;
 
-  If (vest player in UGBL_Westen ) then
+  If (backpack player in UGBL_RadiosTropen) then
   {
     _thisBox addBackpackCargo ["BWA3_Kitbag_Tropen_Medic", 2];
     {
