@@ -10,6 +10,8 @@
 private _index = _this select 0;
 private _thisVehicle = _this select 1;
 
+//schnellste lösung. nicht die beste.
+if (!canmove _thisVehicle) exitwith {};
 
 private _spawnPos = getposATL _thisVehicle;
 _spawnPos set [2,(_spawnPos select 2) - 8];
