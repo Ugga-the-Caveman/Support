@@ -91,20 +91,16 @@ UGBL_fnc_paraDrop = {
           };
 };
 
-//Die Westen auswahl
-UGBL_Westen = [
-  "BWA3_Vest_Tropen",
-  "BWA3_Vest_Rifleman1_Tropen",
-  "BWA3_Vest_Autorifleman_Tropen",
-  "BWA3_Vest_Grenadier_Tropen",
-  "BWA3_Vest_Medic_Tropen",
-  "BWA3_Vest_Marksman_Tropen",
-  "BWA3_Vest_Leader_Tropen",
-  "BWA3_Item_Vest_JPC_Rifleman_Tropen",
-  "BWA3_Item_Vest_JPC_Leader_Tropen",
-  "BWA3_Item_Vest_JPC_Radioman_Tropen"
-];
 
+
+UGBL_RadiosFleck = [
+  "TFAR_rt1523g_big_bwmod",
+  "TFAR_rt1523g_bwmod"
+];
+UGBL_RadiosTropen = [
+  "TFAR_rt1523g_big_bwmod_tropen",
+  "TFAR_rt1523g_rhs"
+];
 
 
 
@@ -125,3 +121,6 @@ UGBL_menu_Support =
 	["Eagle FOW", [9], "", -5, [["expression", "[8] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
 	["Nachschub Kiste", [10], "", -5, [["expression", "[9] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"]
 ];
+
+
+[player,"UGBL_MenuClass",nil,nil,""] call BIS_fnc_addCommMenuItem;
