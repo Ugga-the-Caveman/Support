@@ -32,7 +32,7 @@ _spawnPos set [2,200];
 
 
 //erstelle Helicopter und crew. crew speichern für später.
-private _supportHeli = createVehicle ["14JgKp_A3_NH99", _spawnpos, [], 0, "Fly"];
+private _supportHeli = createVehicle ["14JgKp_A3_NH99", _spawnpos, [], (_spawnPos getdir _dropPos), "Fly"];
 createVehicleCrew _supportHeli;
 private _heliCrew = group driver _supportHeli;
 _supportHeli flyinHeightASL [150,150,150];
