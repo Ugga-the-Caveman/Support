@@ -32,7 +32,8 @@ _spawnPos set [2,200];
 
 
 //erstelle Helicopter und crew. crew speichern für später.
-private _supportHeli = createVehicle ["14JgKp_A3_NH99", _spawnpos, [], (_spawnPos getdir _dropPos), "Fly"];
+private _supportHeli = createVehicle ["14JgKp_A3_NH99", _spawnpos, [], 0, "Fly"];
+_supportheli setdir (_spawnPos getdir _dropPos);
 createVehicleCrew _supportHeli;
 private _heliCrew = group driver _supportHeli;
 _supportHeli flyinHeightASL [150,150,150];
@@ -41,6 +42,7 @@ _supportHeli flyinHeightASL [150,150,150];
 //wp1: move to dropPos and drop support
 private _wp1 = _heliCrew addWaypoint [_dropPos, 0];
 _wp1 setWaypointType "MOVE";
+_wp1 setWaypointCompletionRadius 10;
 
 private _code = format ["[%1,vehicle leader this] spawn compile preprocessFile 'support\createSupport.sqf';",_index];
 _wp1 setWaypointStatements ["true",_code];
@@ -50,5 +52,6 @@ _wp1 setWaypointStatements ["true",_code];
 //wp2: return to spawnPos and despawn;
 private _wp2 = _heliCrew addWaypoint [_spawnPos, 0];
 _wp2 setWaypointType "MOVE";
+_wp2 setWaypointCompletionRadius 10;
 _wp2 setWaypointStatements ["true", "private _heli = vehicle leader this; {deleteVehicle _x;}forEach units this; deleteVehicle _heli;"];
 //--
