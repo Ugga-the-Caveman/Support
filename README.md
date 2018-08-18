@@ -1,7 +1,7 @@
 # Call Support Menu
 <p>
   Fügt ein Menü in das CommandMenu ein Wo man Nachschub bestellen kann, der dann per Hubschrauber eingeflogen wird.
-  <hr>
+  <hr/>
   <sub>
   Tested on: Arma-3 APEX Version 1.84<br/>
   Required Mods: <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a>, <a href="http:/bwmod.de/">BW-Mod</a>, 14JgKp Mod<br/>
