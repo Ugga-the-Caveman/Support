@@ -6,9 +6,10 @@ Fügt ein Menü in das CommandMenu ein Wo man Nachschub bestellen kann, der dann
   Required Mods: <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a>, <a href="http:/bwmod.de/">BW-Mod</a>, 14JgKp Mod<br/>
 </p>
 <hr>
-<p>
-## Beschreibung
 
+
+## Beschreibung
+<p>
 Trägt ein Spieler einen passenden Funkrucksack, kann er das Menü öffnen um einen Nachschubtyp auszuwählen.
 
 Wählt ein Spieler einen Nachschubtyp, öffnet sich seine Karte, wo er durch links-klick die Abwurfzone bestimmen kann.
@@ -17,8 +18,9 @@ Ist keine spawnPosition definiert, wird der Hubschrauber zufällig irgendwo um d
 
 Hat der Hubschrauber seine Fracht abgeworfen, fliegt er zurück zur spawnPosition und wird dort gelöscht.
 </p>
-<p>
+
 ## Installation
+<p>
 Klick auf den grünen Button, um alle Dateien als zip-File herunterzuladen.
 
 Extrahiere das Packet.
@@ -29,8 +31,9 @@ Füge den Inhalt der heruntergeladenen init.sqf deiner Init.sqf hinzu.
 
 Füge den Inhalt der heruntergeladenen Description.ext deiner Description.ext hinzu.
 </p>
-<p>
+
 ## How to Use
+<p>
 Das CommandMenu öffnet man mit (0-8-x). Eventuell muss man dazu seine ACE Tastenbelegung anpassen.
 </p>
 
