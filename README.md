@@ -13,26 +13,18 @@ Fügt ein Menü in das CommandMenu ein Wo man Nachschub bestellen kann, der dann
 <hr>
 
 ## Beschreibung
-<p>
-Trägt ein Spieler ein passenden Funkrucksack, kann er das Menü öffnen um Nachschub anzuforden, der dann per Hubschrauber abgeworfen wird.
-
-Hat man einen Nachschubtyp gewählt, öffnet sich die Karte um die Abwurfzone zu bestimmten. 
-</p>
-
-
-<p>
-callSupport.sqf lässt den Spieler die _dropPos über die Karte wählen. Der Support-Typ wird als parameter übergeben.
-Hubschraubertyp und SpawnPosition werden in createHeli.sqf festgelegt.
-  
-Der Nachschub wird gewöhnlich in Flecktarn geliefert. Wenn aber die Weste des Nachschub-Anforderers in "UGBL_Westen" eingetragen ist, wird der Nachschub in Tropentarn geliefert.
-</p>
-
-
+Trägt ein Spieler einen passenden Funkrucksack, kann er das Menü öffnen um Nachschub anzuforden.
+Nachdem ein Nachschubtyp gewählt ist, öffnet sich die Karte um die Abwurfzone zu bestimmten.
+Dann wird der Hubschrauber erstellt. Entweder an einer Vordefinierten Position oder zufällig um den Spieler.
+Hat der Hubschrauber seine Fracht abgeworfen, fliegt er zurück zur spawnPosition und wird dann gelöscht.
 
 ## Installation
-
+Klick auf den grünen Button, um alle Dateien als zip-File herunterzuladen.
+Extrahiere das Packet und kopier dann die Dateien in den Ordner deiner Mission.
+Sollten Dateien bereits existieren, musst du den Inhalt der heruntergeladenen in die bereits bestehenden Dateien integrieren.
 
 ## How to Use
+Das CommandMenu öffnet man mit (0-8-x). Eventuell muss man dazu seine ACE Tastenbelegung anpassen.
 
-Das CommandMenu öffnet man mit (0-8-x). Eventuell muss man seine ACE Tastenbelegung anpassen.
+
  
