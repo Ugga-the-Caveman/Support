@@ -11,6 +11,7 @@ Fügt ein Menü in das CommandMenu ein Wo man Nachschub bestellen kann, der dann
 ## Beschreibung
 <p>
 Trägt ein Spieler einen passenden Funkrucksack, kann er das Menü öffnen um einen Nachschubtyp auszuwählen.
+Die Tarnfarbe des Nachschubs wird über die Tarnfarbe des Funkrucksackes bestimmt.
 
 Wählt ein Spieler einen Nachschubtyp, öffnet sich seine Karte, wo er durch links-klick die Abwurfzone bestimmen kann.
 
@@ -32,9 +33,18 @@ Füge den Inhalt der heruntergeladenen init.sqf deiner Init.sqf hinzu.
 Füge den Inhalt der heruntergeladenen Description.ext deiner Description.ext hinzu.
 </p>
 
-## How to Use
+
+## Bedienung
 <p>
-Das CommandMenu öffnet man mit (0-8-x). Eventuell muss man dazu seine ACE Tastenbelegung anpassen.
+  Das CommandMenu öffnet man mit (0-8-x). Eventuell muss man dazu seine ACE Tastenbelegung anpassen.
 </p>
+
+
+### Hubschrauber spawnposition definieren
+
+### Funkrucksäcke definieren
+
+### Menü anpassen
+
 
  
