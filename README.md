@@ -1,9 +1,8 @@
 <h1 align="center">
   Call Support Menu
 </h1>
-
 <p>
-  Diese Scripts erstellt ein CommMenu, über das man Nachschub anfordern kann. Der Bestellte Nachschub wird dann per Hubschrauber eingeflogen.
+a support Script for Arma3
 </p>
 
 <p> <sub>
@@ -13,9 +12,30 @@
 
 <hr>
 
+## Beschreibung
+<p>
+Fügt ein Menü in das CommandMenu ein Wo man Nachschub bestellen kann, der dann per Hubschrauber eingeflogen wird. 
+ 
+
+Trägt ein Spieler ein passenden Funkrucksack, kann er das Menü öffnen um Nachschub anzuforden, der dann per Hubschrauber abgeworfen wird.
+
+Hat man einen Nachschubtyp gewählt, öffnet sich die Karte um die Abwurfzone zu bestimmten. 
+</p>
+
+
 <p>
 callSupport.sqf lässt den Spieler die _dropPos über die Karte wählen. Der Support-Typ wird als parameter übergeben.
 Hubschraubertyp und SpawnPosition werden in createHeli.sqf festgelegt.
   
 Der Nachschub wird gewöhnlich in Flecktarn geliefert. Wenn aber die Weste des Nachschub-Anforderers in "UGBL_Westen" eingetragen ist, wird der Nachschub in Tropentarn geliefert.
 </p>
+
+
+
+## Installation
+
+
+## How to Use
+
+Das CommandMenu öffnet man mit (0-8-x). Eventuell muss man seine ACE Tastenbelegung anpassen.
+ 
