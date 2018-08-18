@@ -2,7 +2,7 @@
   Call Support Menu
 </h1>
 <p>
-a support Script for Arma3
+Fügt ein Menü in das CommandMenu ein Wo man Nachschub bestellen kann, der dann per Hubschrauber eingeflogen wird. 
 </p>
 
 <p> <sub>
@@ -14,9 +14,6 @@ a support Script for Arma3
 
 ## Beschreibung
 <p>
-Fügt ein Menü in das CommandMenu ein Wo man Nachschub bestellen kann, der dann per Hubschrauber eingeflogen wird. 
- 
-
 Trägt ein Spieler ein passenden Funkrucksack, kann er das Menü öffnen um Nachschub anzuforden, der dann per Hubschrauber abgeworfen wird.
 
 Hat man einen Nachschubtyp gewählt, öffnet sich die Karte um die Abwurfzone zu bestimmten. 
