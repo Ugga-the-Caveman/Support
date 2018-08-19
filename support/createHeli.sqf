@@ -1,6 +1,6 @@
 /*
   1.Parameter: Support index
-  2.Parameter: SpielerEinheit die den Support gerufen hat
+  2.Parameter: Einheit vom Spieler, welcher den Support gerufen hat
   3.Parameter: (optional) Position wo der Support abgeworfen wird. Wenn undefiniert Spieler Position
 */
 
@@ -25,9 +25,12 @@ else
 //--
 
 
-//spawnPosition des Hubschraubers festlegen. Hier noch die Entfernung anpassen
-private _spawnPos = [_caller, 300, (floor (random 360))] call BIS_fnc_relPos;
-_spawnPos set [2,200];
+//spawnPosition des Hubschraubers festlegen. Wenn undefiniert random pos um _caller
+private _spawnPos = getmarkerpos "supportSpawnMarker";
+
+if (_spawnPos distance2d [0,0,0] == 0) then {
+  _spawnPos = [_caller, viewdistance, (floor (random 360))] call BIS_fnc_relPos;
+};
 //--
 
 
@@ -36,7 +39,8 @@ private _supportHeli = createVehicle ["14JgKp_A3_NH99", _spawnpos, [], 0, "Fly"]
 _supportheli setdir (_spawnPos getdir _dropPos);
 createVehicleCrew _supportHeli;
 private _heliCrew = group driver _supportHeli;
-_supportHeli flyinHeightASL [150,150,150];
+_supportHeli flyinHeightASL 180;
+_supportHeli flyinHeightASL [180,180,180];
 //--
 
 //wp1: move to dropPos and drop support
