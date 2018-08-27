@@ -7,7 +7,6 @@
 if (!isServer) exitwith {};
 
 
-
 //sammle parameter
 private _index = _this select 0;
 private _caller = _this select 1;
@@ -34,17 +33,25 @@ if (_spawnPos distance2d [0,0,0] == 0) then {
 //--
 
 
-//erstelle Helicopter und crew. crew speichern für später.
+//erstelle Helicopter
 private _supportHeli = createVehicle ["14JgKp_A3_NH99", _spawnpos, [], 0, "Fly"];
 _supportheli setdir (_spawnPos getdir _dropPos);
 _supportHeli flyinHeight 180;
 _supportHeli flyinHeightASL [180,180,180];
 _supportHeli allowCrewInImmobile true;
+//--
 
+
+//erstelle helicopter crew
 createVehicleCrew _supportHeli;
 private _heliCrew = group driver _supportHeli;
 {_x triggerDynamicSimulation false;}forEach units _heliCrew;
+_heliCrew setBehaviour "CARELESS";
+_heliCrew setCombatMode "YELLOW";
+_heliCrew setSpeedMode "FULL";
+_heliCrew enableAttack false;
 //--
+
 
 //wp1: move to dropPos and drop support
 private _wp1 = _heliCrew addWaypoint [_dropPos, 0];
@@ -59,6 +66,5 @@ _wp1 setWaypointStatements ["true",_code];
 //wp2: return to spawnPos and despawn;
 private _wp2 = _heliCrew addWaypoint [_spawnPos, 0];
 _wp2 setWaypointType "MOVE";
-_wp2 setWaypointCompletionRadius 10;
 _wp2 setWaypointStatements ["true", "private _heli = vehicle leader this; {deleteVehicle _x;}forEach units this; deleteVehicle _heli; deleteGroup this;"];
 //--
