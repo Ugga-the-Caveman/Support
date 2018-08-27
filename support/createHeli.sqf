@@ -37,10 +37,12 @@ if (_spawnPos distance2d [0,0,0] == 0) then {
 //erstelle Helicopter und crew. crew speichern für später.
 private _supportHeli = createVehicle ["14JgKp_A3_NH99", _spawnpos, [], 0, "Fly"];
 _supportheli setdir (_spawnPos getdir _dropPos);
-createVehicleCrew _supportHeli;
-private _heliCrew = group driver _supportHeli;
 _supportHeli flyinHeight 180;
 _supportHeli flyinHeightASL [180,180,180];
+
+createVehicleCrew _supportHeli;
+private _heliCrew = group driver _supportHeli;
+{_x triggerDynamicSimulation false;}forEach units _heliCrew;
 //--
 
 //wp1: move to dropPos and drop support
