@@ -39,6 +39,7 @@ private _supportHeli = createVehicle ["14JgKp_A3_NH99", _spawnpos, [], 0, "Fly"]
 _supportheli setdir (_spawnPos getdir _dropPos);
 _supportHeli flyinHeight 180;
 _supportHeli flyinHeightASL [180,180,180];
+_supportHeli allowCrewInImmobile true;
 
 createVehicleCrew _supportHeli;
 private _heliCrew = group driver _supportHeli;
