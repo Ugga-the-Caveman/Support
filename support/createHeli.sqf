@@ -58,7 +58,7 @@ private _wp1 = _heliCrew addWaypoint [_dropPos, 0];
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointCompletionRadius 10;
 
-private _code = format ["[%1,vehicle leader this] spawn compile preprocessFile 'support\createSupport.sqf';",_index];
+private _code = format ["[%1,vehicle this] spawn compile preprocessFile 'support\createSupport.sqf';",_index];
 _wp1 setWaypointStatements ["true",_code];
 //--
 
@@ -66,5 +66,5 @@ _wp1 setWaypointStatements ["true",_code];
 //wp2: return to spawnPos and despawn;
 private _wp2 = _heliCrew addWaypoint [_spawnPos, 0];
 _wp2 setWaypointType "MOVE";
-_wp2 setWaypointStatements ["true", "private _heli = vehicle leader this; {deleteVehicle _x;}forEach units this; deleteVehicle _heli; deleteGroup this;"];
+_wp2 setWaypointStatements ["true", "private _heli = vehicle this; private _group = group this; {deleteVehicle _x;}forEach units _group; deleteVehicle _heli; deleteGroup _group;"];
 //--
