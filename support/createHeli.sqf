@@ -46,6 +46,7 @@ _supportHeli allowCrewInImmobile true;
 createVehicleCrew _supportHeli;
 private _heliCrew = group driver _supportHeli;
 {_x triggerDynamicSimulation false;}forEach units _heliCrew;
+_heliCrew deleteGroupWhenEmpty true;
 _heliCrew setBehaviour "CARELESS";
 _heliCrew setCombatMode "YELLOW";
 _heliCrew setSpeedMode "FULL";
@@ -66,5 +67,5 @@ _wp1 setWaypointStatements ["true",_code];
 //wp2: return to spawnPos and despawn;
 private _wp2 = _heliCrew addWaypoint [_spawnPos, 0];
 _wp2 setWaypointType "MOVE";
-_wp2 setWaypointStatements ["true", "private _heli = vehicle this; private _group = group this; {deleteVehicle _x;}forEach units _group; deleteVehicle _heli; deleteGroup _group;"];
+_wp2 setWaypointStatements ["true", "private _heli = vehicle this; {deleteVehicle _x;}forEach units group this; deleteVehicle _heli;"];
 //--
