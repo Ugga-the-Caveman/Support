@@ -60,5 +60,5 @@ _wp1 setWaypointStatements ["true",_code];
 private _wp2 = _heliCrew addWaypoint [_spawnPos, 0];
 _wp2 setWaypointType "MOVE";
 _wp2 setWaypointCompletionRadius 10;
-_wp2 setWaypointStatements ["true", "private _heli = vehicle leader this; {deleteVehicle _x;}forEach units this; deleteVehicle _heli;"];
+_wp2 setWaypointStatements ["true", "private _heli = vehicle leader this; {deleteVehicle _x;}forEach units this; deleteVehicle _heli; deleteGroup this;"];
 //--
