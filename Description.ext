@@ -1,7 +1,7 @@
 // Hier wird die class für das Menü erstellt
 class CfgCommunicationMenu
 {
-  class Menu
+  class UGBL_MenuClass
       {
           text = "Nachschub Optionen";
 					submenu = "#USER:UGBL_menu_Support";
