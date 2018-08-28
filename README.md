@@ -31,6 +31,7 @@ Kopier den Ordner Support in den Ordner deiner Mission.
 Füge den Inhalt der heruntergeladenen init.sqf deiner Init.sqf hinzu.
 
 Füge den Inhalt der heruntergeladenen Description.ext deiner Description.ext hinzu.
+Sollte in deiner Description.ext bereits eine "CfgCommunicationMenu" class existieren, dann füge nur das Menü ein.
 </p>
 
 
@@ -41,10 +42,24 @@ Füge den Inhalt der heruntergeladenen Description.ext deiner Description.ext hi
 
 
 ### Hubschrauber spawnposition definieren
+<p>
+Erstelle einen Marker mit dem Namen supportSpawnMarker.
+Der Marker kann auch während der Mission erstellt/verschoben/gelöscht werden.
+Du kannst diesen Marker auch per script erstellen.
+Kann ein Localmarker sein muss aber auf dem server erstellt werden.
+</p>
+
 
 ### Funkrucksäcke definieren
+<p>
+In support\init.sqf sind 2 Arrays definiert. (UGBL_RadiosFleck  und UGBL_RadiosTropen). 
+Diese Arrays enthalten die Classnames der Rucksäcke, die man tragen muss damit man das Menü benutzen kann.
+</p>
+
 
 ### Menü anpassen
-
+<p>
+Blub fragen XD
+</p>
 
  
