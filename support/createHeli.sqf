@@ -38,6 +38,10 @@ private _heliCrew = group driver _supportHeli;
 _supportHeli flyinHeightASL [150,150,150];
 //--
 
+//helicopter unverwundbar machen
+_supportHeli allowdamage false;
+
+
 //wp1: move to dropPos and drop support
 private _wp1 = _heliCrew addWaypoint [_dropPos, 0];
 _wp1 setWaypointType "MOVE";
