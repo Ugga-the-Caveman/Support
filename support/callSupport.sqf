@@ -9,10 +9,15 @@ if !(hasInterface) exitwith {};
 private _index = _this select 0;
 
 
-//abbrechen wenn man keine Karte hat. todo: als karte auch gps geräte zulassen
-//Gadanke dabei ist: man sieht nix auf der karte, wenn man kein kartending hat.
-if !("ItemMap" in (assignedItems player)) exitwith {hint "Du brauchst eine Karte."};
 
+if not( ((backpack player) in UGBL_RadiosFleck) or ((backpack player) in UGBL_RadiosTropen) ) exitwith {
+  hint "geht nicht ohne radio rucksack brauchst radio um hq zu erreichen";
+};
+
+
+player sideChat format["CROSSROAD, hier %1 - fordere Nachschub Typ %2 - kommen.",group player,_index];
+
+[blufor,"HQ"] sideChat format["%1, hier CROSSROAD - übermitteln sie die AbwurfPosition - kommen.",group player];
 
 
 
@@ -32,7 +37,7 @@ openMap true;
 //--
 
 
-hint "Du musst karte drücken wo support";
+hint "Klicke mit der linken Maustaste auf die Karte, um die AbwurfPosition zu bestimmen.";
 
 
 //warten bis dropPos geändert oder abbruch durch spieler
@@ -47,14 +52,15 @@ openMap false;
 
 UGBL_mapClicked = nil;
 
-private _dropPos = UGBL_dropPos;
+private _dropPos =+ UGBL_dropPos;//array neu anlegen anstatt nur zu referenzieren
 UGBL_dropPos = nil;
 //--
 
 
 //abbruch, wenn dropPos immernoch leer ist
-if (count _dropPos isEqualTo 0) exitwith {
-  hint "Support Bestellung abgebrochen";
+if (count _dropPos == 0) exitwith {
+player sideChat format["CROSSROAD, hier %1 - ?hat sich erledigt? - Ende.",group player,_index];
+
 };
 
 
@@ -63,6 +69,6 @@ if (count _dropPos isEqualTo 0) exitwith {
 
 
 
-player sideChat format["CROSSROAD, hier %1. - fordere Nachschub Typ %2, planquadrat %3. - kommen.",group player,_index,mapGridPosition _dropPos];
+player sideChat format["CROSSROAD, hier %1 - Abwurfzone für Nachschub ist %3 - kommen.",group player,_index,mapGridPosition _dropPos];
 
-[blufor,"HQ"] sideChat format["%1, hier CROSSROAD. - Nachschub ist unterwegs, Ende",group player];
+[blufor,"HQ"] sideChat format["%1, hier CROSSROAD - Verstanden, Nachschub ist unterwegs - Ende",group player];

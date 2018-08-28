@@ -20,7 +20,7 @@ _spawnPos set [2,(_spawnPos select 2) - 8];
 
 private _fnc_spawnVehicle = {
   private _spawnPos = _this select 0;
-  private _type = if (vest player in UGBL_Westen) then {_this select 2}else{_this select 1};
+  private _type = if (backpack player in UGBL_RadiosTropen) then {_this select 2}else{_this select 1};
 
   (createVehicle [_type, _spawnPos, [], 0, "CAN_COLLIDE"])
 };
@@ -34,37 +34,27 @@ private _beladeScript = {
   clearItemCargoGlobal _thisBox;
   clearBackpackCargoGlobal _thisBox;
 
-  If (vest player in UGBL_Westen ) then
+  If (backpack player in UGBL_RadiosTropen) then
   {
     _thisBox addBackpackCargo ["BWA3_Kitbag_Tropen_Medic", 2];
-    {
-      _x addItemCargo ["ACE_packingBandage", 20];
-      _x addItemCargo ["ACE_fieldDressing", 10];
-      _x addItemCargo ["ACE_quikclot", 35];
-      _x addItemCargo ["ACE_elasticBandage", 8];
-      _x addItemCargo ["ACE_morphine", 30];
-      _x addItemCargo ["ACE_epinephrine", 18];
-      _x addItemCargo ["ACE_bloodIV_250", 6];
-      _x addItemCargo ["ACE_bloodIV_500", 5];
-      _x addItemCargo ["ACE_bloodIV", 5];
-    } forEach everyBackpack _thisBox;
 
   }
   else
   {
     _thisBox addBackpackCargo ["BWA3_Kitbag_Fleck_Medic", 2];
-    {
-      _x addItemCargo ["ACE_packingBandage", 20];
-      _x addItemCargo ["ACE_fieldDressing", 10];
-      _x addItemCargo ["ACE_quikclot", 35];
-      _x addItemCargo ["ACE_elasticBandage", 8];
-      _x addItemCargo ["ACE_morphine", 30];
-      _x addItemCargo ["ACE_epinephrine", 18];
-      _x addItemCargo ["ACE_bloodIV_250", 6];
-      _x addItemCargo ["ACE_bloodIV_500", 5];
-      _x addItemCargo ["ACE_bloodIV", 5];
-    } forEach everyBackpack _thisBox;
   };
+  
+  {
+    _x addItemCargo ["ACE_packingBandage", 20];
+    _x addItemCargo ["ACE_fieldDressing", 10];
+    _x addItemCargo ["ACE_quikclot", 35];
+    _x addItemCargo ["ACE_elasticBandage", 8];
+    _x addItemCargo ["ACE_morphine", 30];
+    _x addItemCargo ["ACE_epinephrine", 18];
+    _x addItemCargo ["ACE_bloodIV_250", 6];
+    _x addItemCargo ["ACE_bloodIV_500", 5];
+    _x addItemCargo ["ACE_bloodIV", 5];
+  } forEach everyBackpack _thisBox;
 
   _thisBox addItemCargoGlobal ["BWA3_30Rnd_556x45_G36_AP",30];
   _thisBox addItemCargoGlobal ["ACE_CableTie",10];
