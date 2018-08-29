@@ -92,35 +92,42 @@ UGBL_fnc_paraDrop = {
 };
 
 
-
 UGBL_RadiosFleck = [
   "TFAR_rt1523g_big_bwmod",
   "TFAR_rt1523g_bwmod"
 ];
+
 UGBL_RadiosTropen = [
   "TFAR_rt1523g_big_bwmod_tropen",
   "TFAR_rt1523g_rhs"
 ];
 
 
+//setup sprecher-Einheit 
+UGBL_talker triggerDynamicSimulation false;
+UGBL_talker allowdamage false;
+UGBL_talker hideObjectglobal true;
+UGBL_talker kbAddTopic ["UGBL_topic", "support\blabla.bikb"];
+//--
+
 
 //ab jetzt kommen nur noch Sachen die auf Spieler Pc´s ausgeführt werden sollen. Dedicated und HeadlessClients brechen hier ab
 if (!hasinterface) exitwith {};
 
-
 UGBL_menu_Support =
 [
-	["Support",true],
-	["SanFuchs", [2], "", -5, [["expression", "[1] spawn compile preprocessFile 'support\callSupport.sqf';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Fuchs", [3], "", -5, [["expression", "[2] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Pio Fuchs", [4], "", -5, [["expression", "[3] spawn compile preprocessFile 'support\callSupport.sqf';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Milan Fuchs", [5], "", -5, [["expression", "[4] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Wiesel MK 20", [6], "", -5, [["expression", "[5] spawn compile preprocessFile 'support\callSupport.sqf';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Wiesel TOW", [7], "", -5, [["expression", "[6] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Eagle", [8], "", -5, [["expression", "[7] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Eagle FOW", [9], "", -5, [["expression", "[8] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
-	["Nachschub Kiste", [10], "", -5, [["expression", "[9] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"]
+  ["Support",true],
+  ["SanFuchs", [2], "", -5, [["expression", "[1] spawn compile preprocessFile 'support\callSupport.sqf';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
+  ["Fuchs", [3], "", -5, [["expression", "[2] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
+  ["Pio Fuchs", [4], "", -5, [["expression", "[3] spawn compile preprocessFile 'support\callSupport.sqf';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
+  ["Milan Fuchs", [5], "", -5, [["expression", "[4] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
+  ["Wiesel MK 20", [6], "", -5, [["expression", "[5] spawn compile preprocessFile 'support\callSupport.sqf';"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
+  ["Wiesel TOW", [7], "", -5, [["expression", "[6] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
+  ["Eagle", [8], "", -5, [["expression", "[7] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
+  ["Eagle FOW", [9], "", -5, [["expression", "[8] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"],
+  ["Nachschub Kiste", [10], "", -5, [["expression", "[9] spawn compile preprocessFile 'support\callSupport.sqf' ;"]], "1", "1", "\A3\ui_f\data\IGUI\Cfg\Cursors\iconcursorsupport_ca.paa"]
 ];
 
-
 [player,"UGBL_MenuClass",nil,nil,""] call BIS_fnc_addCommMenuItem;
+
+player kbAddTopic ["UGBL_topic","support\blabla.bikb"];
