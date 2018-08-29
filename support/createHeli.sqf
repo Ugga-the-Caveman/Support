@@ -24,6 +24,11 @@ else
 //--
 
 
+//offizier auf allen clients sprechen lassen
+[0,"support\answer.sqf"] remoteExec ["BIS_fnc_execVM",0];
+
+
+
 //spawnPosition des Hubschraubers festlegen. Wenn undefiniert random pos um _caller
 private _spawnPos = getmarkerpos "supportSpawnMarker";
 
@@ -39,7 +44,11 @@ _supportheli setdir (_spawnPos getdir _dropPos);
 _supportHeli flyinHeight 180;
 _supportHeli flyinHeightASL [180,180,180];
 _supportHeli allowCrewInImmobile true;
+_supportHeli addEventHandler ["Dammaged","call compile preprocessFile 'support\heliKilled.sqf';"];
 //--
+
+
+
 
 
 //erstelle helicopter crew
