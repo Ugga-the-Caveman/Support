@@ -1,0 +1,35 @@
+class Sentences
+{
+	class Drop_Request
+	{
+		text = $STR_A3_requesting_supply_drop_at_the_transmitted_coordinates__over_;
+		speech[] = {SupportRequestRGSupplyDrop};
+		class Arguments {};
+	};
+	
+	class Drop_Acknowledged
+	{
+		text = $STR_A3_affirmative__supplies_en_route__out_;
+		speech[] = {RequestAcknowledgedSGSupplyDrop};
+		class Arguments {};
+	};
+	
+	class Drop_Destroyed
+	{
+		text = $STR_A3_be_advised__support_aircraft_is_unresponsive__out_;
+		speech[] = {UnitDestroyedHQSupplyDrop};
+		class Arguments {};
+	};
+	
+	class Drop_Accomplished
+	{
+		text = $STR_A3_the_supplies_have_been_dropped__out_;
+		speech[] = {RequestAccomplishedSGSupplyDrop};
+		class Arguments {};
+	};
+};
+
+class Arguments{};
+class Special{};
+startWithVocal[] = {hour};
+startWithConsonant[] = {europe, university};
