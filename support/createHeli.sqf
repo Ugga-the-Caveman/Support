@@ -44,11 +44,12 @@ _supportheli setdir (_spawnPos getdir _dropPos);
 _supportHeli flyinHeight 180;
 _supportHeli flyinHeightASL [180,180,180];
 _supportHeli allowCrewInImmobile true;
-_supportHeli addEventHandler ["Dammaged","call compile preprocessFile 'support\heliKilled.sqf';"];
 //--
 
-
-
+//eventhandler erstellen und id speichern
+private _id = _supportHeli addEventHandler ["Dammaged","call compile preprocessFile 'support\heliKilled.sqf';"];
+_supportHeli setvariable ["ubgl_eh_id",_id];
+//--
 
 
 //erstelle helicopter crew
