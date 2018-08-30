@@ -93,3 +93,14 @@ else
 {
   [2,"support\answer.sqf"] remoteExec ["BIS_fnc_execVM",0];
 };
+
+
+//eventhandler entfernen
+private _id = _supportHeli getvariable ["ubgl_eh_id",-1];
+if (_id != -1) then
+{
+  _supportHeli removeEventHandler ["Dammaged", _id];
+};
+//--
+
+
