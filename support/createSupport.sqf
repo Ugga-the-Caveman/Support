@@ -3,12 +3,16 @@
 
   1. parameter: Support index.
   2. parameter: Fahrzeug (vorzugsweise Hubschrauber) unter dem der Support erscheinen soll.
+  3. parameter: support tarn index. 0:fleck, 1:tropen
 
-  [1,_thisVehicle] spawn compile 'support\createSupport.sqf';
+  [1,_thisVehicle,0] spawn compile 'support\createSupport.sqf';
 */
+
+if (!isServer) exitwith {};
 
 private _index = _this select 0;
 private _thisVehicle = _this select 1;
+private _farbe = _this select 2;
 
 if (canmove _thisVehicle) then
 {
@@ -21,24 +25,24 @@ if (canmove _thisVehicle) then
 
   private _fnc_spawnVehicle = {
     private _spawnPos = _this select 0;
-    private _type = if (backpack player in UGBL_RadiosTropen) then {_this select 2}else{_this select 1};
+    private _type = _this select 1;
 
     (createVehicle [_type, _spawnPos, [], 0, "CAN_COLLIDE"])
   };
 
   //Das Beladungsscript für die Box
   private _beladeScript = {
-    private _thisBox = _this;
+    private _thisBox = _this select 0;
+	private _farbe = _this select 1;
 
     clearWeaponCargoGlobal _thisBox;
     clearMagazineCargoGlobal _thisBox;
     clearItemCargoGlobal _thisBox;
     clearBackpackCargoGlobal _thisBox;
 
-    If (backpack player in UGBL_RadiosTropen) then
+    If (_farbe == 1) then
     {
       _thisBox addBackpackCargo ["BWA3_Kitbag_Tropen_Medic", 2];
-
     }
     else
     {
@@ -71,15 +75,15 @@ if (canmove _thisVehicle) then
 
   switch (_index) do
   {
-    case 1:{_thisSupport = [_spawnPos,"Redd_Tank_Fuchs_1A4_San_Flecktarn","Redd_Tank_Fuchs_1A4_San_Tropentarn"] call _fnc_spawnVehicle;};
-    case 2:{_thisSupport = [_spawnPos,"Redd_Tank_Fuchs_1A4_Jg_Flecktarn","Redd_Tank_Fuchs_1A4_Jg_Tropentarn"] call _fnc_spawnVehicle;};
-    case 3:{_thisSupport = [_spawnPos,"Redd_Tank_Fuchs_1A4_Pi_Flecktarn","Redd_Tank_Fuchs_1A4_Pi_Tropentarn"] call _fnc_spawnVehicle;};
-    case 4:{_thisSupport = [_spawnPos,"Redd_Tank_Fuchs_1A4_Jg_Milan_Flecktarn","Redd_Tank_Fuchs_1A4_Jg_Milan_Tropentarn"] call _fnc_spawnVehicle;};
-    case 5:{_thisSupport = [_spawnPos,"Redd_Tank_Wiesel_1A4_MK20_Flecktarn","Redd_Tank_Wiesel_1A4_MK20_Tropentarn"] call _fnc_spawnVehicle;};
-    case 6:{_thisSupport = [_spawnPos,"Redd_Tank_Wiesel_1A2_TOW_Flecktarn","Redd_Tank_Wiesel_1A2_TOW_Tropentarn"] call _fnc_spawnVehicle;};
-    case 7:{_thisSupport = [_spawnPos,"BWA3_Eagle_Fleck","BWA3_Eagle_Tropen"] call _fnc_spawnVehicle;};
-    case 8:{_thisSupport = [_spawnPos,"BWA3_Eagle_FLW100_Fleck","BWA3_Eagle_FLW100_Tropen"] call _fnc_spawnVehicle;};
-    case 9:{_thisSupport = [_spawnPos,"B_supplyCrate_F","B_supplyCrate_F"] call _fnc_spawnVehicle; _thisSupport call _beladeScript;};
+    case 1:{_thisSupport = [_spawnPos,(["Redd_Tank_Fuchs_1A4_San_Flecktarn","Redd_Tank_Fuchs_1A4_San_Tropentarn"] select _farbe)] call _fnc_spawnVehicle;};
+    case 2:{_thisSupport = [_spawnPos,(["Redd_Tank_Fuchs_1A4_Jg_Flecktarn","Redd_Tank_Fuchs_1A4_Jg_Tropentarn"] select _farbe)] call _fnc_spawnVehicle;};
+    case 3:{_thisSupport = [_spawnPos,(["Redd_Tank_Fuchs_1A4_Pi_Flecktarn","Redd_Tank_Fuchs_1A4_Pi_Tropentarn"] select _farbe)] call _fnc_spawnVehicle;};
+    case 4:{_thisSupport = [_spawnPos,(["Redd_Tank_Fuchs_1A4_Jg_Milan_Flecktarn","Redd_Tank_Fuchs_1A4_Jg_Milan_Tropentarn"] select _farbe)] call _fnc_spawnVehicle;};
+    case 5:{_thisSupport = [_spawnPos,(["Redd_Tank_Wiesel_1A4_MK20_Flecktarn","Redd_Tank_Wiesel_1A4_MK20_Tropentarn"] select _farbe)] call _fnc_spawnVehicle;};
+    case 6:{_thisSupport = [_spawnPos,(["Redd_Tank_Wiesel_1A2_TOW_Flecktarn","Redd_Tank_Wiesel_1A2_TOW_Tropentarn"] select _farbe)] call _fnc_spawnVehicle;};
+    case 7:{_thisSupport = [_spawnPos,(["BWA3_Eagle_Fleck","BWA3_Eagle_Tropen"] select _farbe)] call _fnc_spawnVehicle;};
+    case 8:{_thisSupport = [_spawnPos,(["BWA3_Eagle_FLW100_Fleck","BWA3_Eagle_FLW100_Tropen"] select _farbe)] call _fnc_spawnVehicle;};
+    case 9:{_thisSupport = [_spawnPos,(["B_supplyCrate_F","B_supplyCrate_F"] select _farbe)] call _fnc_spawnVehicle; [_thisSupport,_farbe] call _beladeScript;};
   };
 
   //Drop fliegt mit angepasster Geschwindigkeit ab und bekommt Falschirm
