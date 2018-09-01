@@ -21,6 +21,8 @@ else
 {
   _dropPos = getPosatl _caller;
 };
+
+private _farbe = if (backpack _caller in UGBL_RadiosFleck) then {0}else{1};
 //--
 
 
@@ -69,7 +71,7 @@ private _wp1 = _heliCrew addWaypoint [_dropPos, 0];
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointCompletionRadius 10;
 
-private _code = format ["[%1,vehicle this] spawn compile preprocessFile 'support\createSupport.sqf';",_index];
+private _code = format ["[%1,vehicle this,%2] spawn compile preprocessFile 'support\createSupport.sqf';",_index,_farbe];
 _wp1 setWaypointStatements ["true",_code];
 //--
 
