@@ -21,13 +21,18 @@ else
 {
   _dropPos = getPosatl _caller;
 };
-
-private _farbe = if (backpack _caller in UGBL_RadiosFleck) then {0}else{1};
 //--
 
 
 //offizier auf allen clients sprechen lassen
 [0,"support\answer.sqf"] remoteExec ["BIS_fnc_execVM",0];
+
+
+//support tarn bestimmen
+private _farbe = if (backpack _caller in UGBL_RadiosFleck) then {0}else{1};
+//--
+
+
 
 
 
