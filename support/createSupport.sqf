@@ -96,10 +96,10 @@ else
 
 
 //eventhandler entfernen
-private _id = _supportHeli getvariable ["ubgl_eh_id",-1];
+private _id = _thisVehicle getvariable ["ubgl_eh_id",-1];
 if (_id != -1) then
 {
-  _supportHeli removeEventHandler ["Dammaged", _id];
+  _thisVehicle removeEventHandler ["Dammaged", _id];
 };
 //--
 
