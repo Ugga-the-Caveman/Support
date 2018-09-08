@@ -15,11 +15,6 @@ if not( ((backpack player) in UGBL_RadiosFleck) or ((backpack player) in UGBL_Ra
 };
 
 
-player sideChat format["CROSSROAD, hier %1 - fordere Nachschub Typ %2 - kommen.",group player,_index];
-
-[blufor,"HQ"] sideChat format["%1, hier CROSSROAD - übermitteln sie die AbwurfPosition - kommen.",group player];
-
-
 
 //eventhandler vorbereiten und karte öffnen
 UGBL_dropPos = [];
@@ -59,16 +54,13 @@ UGBL_dropPos = nil;
 
 //abbruch, wenn dropPos immernoch leer ist
 if (count _dropPos == 0) exitwith {
-player sideChat format["CROSSROAD, hier %1 - ?hat sich erledigt? - Ende.",group player,_index];
-
+  hint "Support Bestellung abgebrochen";
 };
+
+
+//spieler sentence auf allen clients abspielen
+[player,"support\request.sqf"] remoteExec ["BIS_fnc_execVM",0];
 
 
 //parameter an server übergeben und heli auf server erstellen lassen
 [[_index,player,_dropPos],"support\createHeli.sqf"] remoteExec ["BIS_fnc_execVM",2];
-
-
-
-player sideChat format["CROSSROAD, hier %1 - Abwurfzone für Nachschub ist %3 - kommen.",group player,_index,mapGridPosition _dropPos];
-
-[blufor,"HQ"] sideChat format["%1, hier CROSSROAD - Verstanden, Nachschub ist unterwegs - Ende",group player];

@@ -24,6 +24,18 @@ else
 //--
 
 
+//offizier auf allen clients sprechen lassen
+[0,"support\answer.sqf"] remoteExec ["BIS_fnc_execVM",0];
+
+
+//support tarn bestimmen
+private _farbe = if (backpack _caller in UGBL_RadiosFleck) then {0}else{1};
+//--
+
+
+
+
+
 //spawnPosition des Hubschraubers festlegen. Wenn undefiniert random pos um _caller
 private _spawnPos = getmarkerpos "supportSpawnMarker";
 
@@ -39,6 +51,11 @@ _supportheli setdir (_spawnPos getdir _dropPos);
 _supportHeli flyinHeight 180;
 _supportHeli flyinHeightASL [180,180,180];
 _supportHeli allowCrewInImmobile true;
+//--
+
+//eventhandler erstellen und id speichern
+private _id = _supportHeli addEventHandler ["Dammaged","call compile preprocessFile 'support\heliKilled.sqf';"];
+_supportHeli setvariable ["ubgl_eh_id",_id];
 //--
 
 
@@ -59,7 +76,7 @@ private _wp1 = _heliCrew addWaypoint [_dropPos, 0];
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointCompletionRadius 10;
 
-private _code = format ["[%1,vehicle this] spawn compile preprocessFile 'support\createSupport.sqf';",_index];
+private _code = format ["[%1,vehicle this,%2] spawn compile preprocessFile 'support\createSupport.sqf';",_index,_farbe];
 _wp1 setWaypointStatements ["true",_code];
 //--
 
