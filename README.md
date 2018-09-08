@@ -34,10 +34,10 @@ Sollte in deiner Description.ext bereits eine "CfgCommunicationMenu" class exist
 <p>
 Das CommandMenu öffnet man mit den Zahlentasten (0-8-x). Eventuell muss man dazu seine ACE Tastenbelegung anpassen.
 
-Um das Menu zu benutzen, braucht der Spieler eine Karte(oder GPS und dergleichen) und einen passenden Funkrucksack.
-Die Funkrucksäcke werden in den globalen Variablen UGBL_RadiosFleck und UGBL_RadiosTropen definiert. In welchem dieser Arrays sich der Rucksack des Spielers befindet, bestimmt die Tarnfarbe des Nachschubes.
+Um das Menu zu benutzen, braucht der Nachschub-Anforderer eine Karte(oder GPS und dergleichen) und einen passenden Funkrucksack.
+Die Funkrucksäcke werden in den globalen Variablen UGBL_RadiosFleck und UGBL_RadiosTropen definiert. Der Rucksack des Nachschub-Anforderers, bestimmt die Tarnfarbe des Nachschubes.
 
-Um die spawnPosition des Hubschraubers festzulegen, muss man auf dem Server einem Marker namens "supportSpawnMarker" erstellen. Dieser Marker kann Lokal sein und jederzeit während der mission erstellt/verschoben/gelöscht werden. Solange der Marker nicht existiert, wird der Hubschrauber, in gewissem Abstand, in zufälliger Richtung, um den Spieler herum erstellt.
+Um die spawnPosition des Hubschraubers festzulegen, muss man auf dem Server einem Marker namens "supportSpawnMarker" erstellen. Dieser Marker kann Lokal sein und jederzeit erstellt/verschoben/gelöscht werden. Solange der Marker nicht existiert, wird der Hubschrauber, in gewissem Abstand, in zufälliger Richtung, um den Nachschub-Anforderer herum erstellt.
 </p>
 
 
