@@ -1,9 +1,3 @@
-/*
-  1.Parameter: Support index
-  2.Parameter: Einheit vom Spieler, welcher den Support gerufen hat
-  3.Parameter: (optional) Position wo der Support abgeworfen wird. Wenn undefiniert Spieler Position
-*/
-
 if (!isServer) exitwith {};
 
 
@@ -22,6 +16,10 @@ else
   _dropPos = getPosatl _caller;
 };
 //--
+
+
+//support tarnfarbe bestimmen
+private _farbe = if (backpack _caller in UGBL_RadiosFleck) then {0}else{1};
 
 
 //spawnPosition des Hubschraubers festlegen. Wenn undefiniert random pos um _caller
@@ -57,9 +55,8 @@ _heliCrew enableAttack false;
 //wp1: move to dropPos and drop support
 private _wp1 = _heliCrew addWaypoint [_dropPos, 0];
 _wp1 setWaypointType "MOVE";
-_wp1 setWaypointCompletionRadius 10;
-
-private _code = format ["[%1,vehicle this] spawn compile preprocessFile 'support\createSupport.sqf';",_index];
+_wp1 setWaypointCompletionRadius 15;
+private _code = format ["[%1,vehicle this,%2] spawn compile preprocessFile 'support\createSupport.sqf';",_index,_farbe];
 _wp1 setWaypointStatements ["true",_code];
 //--
 
