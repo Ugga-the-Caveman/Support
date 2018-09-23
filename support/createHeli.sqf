@@ -51,6 +51,10 @@ _heliCrew setSpeedMode "FULL";
 _heliCrew enableAttack false;
 //--
 
+//eventhandler erstellen und id speichern
+private _id = _supportHeli addEventHandler ["Dammaged","call compile preprocessFile 'support\heliKilled.sqf';"];
+_supportHeli setvariable ["ubgl_eh_id",_id];
+//--
 
 //wp1: move to dropPos and drop support
 private _wp1 = _heliCrew addWaypoint [_dropPos, 0];
