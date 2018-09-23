@@ -1,25 +1,11 @@
-/*
-  1. Parameter: support index
-
-  [1] spawn compile preprocessFile "support\callSupport.sqf";
-*/
-
 if !(hasInterface) exitwith {};
 
 private _index = _this select 0;
 
 
-
 if not( ((backpack player) in UGBL_RadiosFleck) or ((backpack player) in UGBL_RadiosTropen) ) exitwith {
-  hint "geht nicht ohne radio rucksack brauchst radio um hq zu erreichen";
+  hint "Ohne Funkrucksack, kannst du keinen Nachschub anforden.";
 };
-
-
-player sideChat format["CROSSROAD, hier %1 - fordere Nachschub Typ %2 - kommen.",group player,_index];
-
-[blufor,"HQ"] sideChat format["%1, hier CROSSROAD - übermitteln sie die AbwurfPosition - kommen.",group player];
-
-
 
 //eventhandler vorbereiten und karte öffnen
 UGBL_dropPos = [];
@@ -59,16 +45,9 @@ UGBL_dropPos = nil;
 
 //abbruch, wenn dropPos immernoch leer ist
 if (count _dropPos == 0) exitwith {
-player sideChat format["CROSSROAD, hier %1 - ?hat sich erledigt? - Ende.",group player,_index];
-
+  hint "Abbruch";
 };
 
 
 //parameter an server übergeben und heli auf server erstellen lassen
 [[_index,player,_dropPos],"support\createHeli.sqf"] remoteExec ["BIS_fnc_execVM",2];
-
-
-
-player sideChat format["CROSSROAD, hier %1 - Abwurfzone für Nachschub ist %3 - kommen.",group player,_index,mapGridPosition _dropPos];
-
-[blufor,"HQ"] sideChat format["%1, hier CROSSROAD - Verstanden, Nachschub ist unterwegs - Ende",group player];
