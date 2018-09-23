@@ -1,3 +1,7 @@
+//aktiviert die debug Konsole für alle spieler, nur für testzwecke, sollte später entfernt werden.
+enableDebugConsole = 2;
+
+
 // Hier wird die class für das Menü erstellt
 class CfgCommunicationMenu
 {
