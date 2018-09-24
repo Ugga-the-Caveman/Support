@@ -53,7 +53,7 @@ if (canmove _thisVehicle) then
     _thisBox addItemCargoGlobal ["BWA3_10Rnd_762x51_G28_AP",20];
     _thisBox addItemCargoGlobal ["hlc_100Rnd_762x51_M_MG3",10];
     _thisBox addItemCargoGlobal ["BWA3_200Rnd_556x45",10];
-    _thisBox addWeaponCargoGlobal ["BWA3_Pzf3_Loaded",4];
+    _thisBox addWeaponCargoGlobal ["BWA3_Pzf3_Tandem_Loaded",4];
   };
 
 
